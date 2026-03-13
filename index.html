@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Footbridge Concept Tool</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f5f7fa;
+text-align:center;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+button{
+background:#2bbf9f;
+color:white;
+border:none;
+padding:15px;
+border-radius:8px;
+width:100%;
+font-size:16px;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Footbridge Concept Tool</h2>
+
+<label>Span (m)</label>
+<input id="span" type="number" value="10">
+
+<br><br>
+
+<label>Live load (kN/m²)</label>
+<input id="load" type="number" value="4">
+
+<br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let L = document.getElementById("span").value
+let q = document.getElementById("load").value
+
+let M = q * L * L / 8
+
+document.getElementById("result").innerHTML =
+"Maximum moment = " + M.toFixed(2) + " kNm"
+
+}
+
+</script>
+
+</body>
+</html>
